@@ -11,7 +11,6 @@ public class Tree {
     }
 
     private Node insertRecursive(Node root, Integer data) {
-
         if(root == null) {
             root = new Node(data);
             return root;
@@ -24,7 +23,18 @@ public class Tree {
         }
 
         return root;
+    }
 
+    public void printInOrder()  {
+        printInOrder(this.root);
+    }
+
+    private void printInOrder(Node root) {
+        if (root != null) {
+            printInOrder(root.getLeftNode());
+            System.out.println(root.getData());
+            printInOrder(root.getRightNode());
+        }
     }
 
 }
